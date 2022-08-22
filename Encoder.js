@@ -13,7 +13,7 @@ module.exports = function(number, ETC = { MaxChars: 100, /* adds result in lua f
     ETC = typeof(ETC)=="object" && ETC || __ETC
     for(i in __ETC){ if(!ETC[i])ETC[i]=__ETC[i] }
     //=========================\\
-    var result = getRandomInt(28, 52).toString()
+    var result = getRandomInt(28, 18529).toString()
     var int = 0
     while( (eval(result)) !== eval(number) || ETC.MaxChars > result.length ){int++
         var NewNumber = { selected: getRandomInt(.3, 100), equation: equations[getRandomInt(1, equations.length)], equation2: equations2[getRandomInt(1, equations2.length)] }
