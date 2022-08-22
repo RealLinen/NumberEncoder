@@ -13,7 +13,7 @@ module.exports = function(number, ETC = { MaxChars: 100, /* adds result in lua f
     ETC = typeof(ETC)=="object" && ETC || __ETC
     for(i in __ETC){ if(!ETC[i])ETC[i]=__ETC[i] }
     //=========================\\
-    var result = getRandomInt(28, 8529).toString()
+    var result = getRandomInt(28, 52).toString()
     var int = 0
     while( (eval(result)) !== eval(number) || ETC.MaxChars > result.length ){int++
         var NewNumber = { selected: getRandomInt(.3, 100), equation: equations[getRandomInt(1, equations.length)], equation2: equations2[getRandomInt(1, equations2.length)] }
@@ -24,9 +24,9 @@ module.exports = function(number, ETC = { MaxChars: 100, /* adds result in lua f
                 if(!ETC.Hide && !ETC.hide && !ETC.hide_eq && !ETC.hideeq)console.log( `Result Done: ${int} || Caculated: ` + eval(resultS) + " | Length: " + resultS.length + " | Selected Random EQ: " + NewNumber.selected );
                 result = ""
                 if(ETC.lua || ETC.luamode || ETC.luaeq || ETC.lua_eq || ETC.luaequation || ETC.lua_equation){
-                    result = `Lua: ${number}==tonumber((${resultS}).."")\n=====================`
+                    result = `Lua Form: \n${number}==tonumber((${resultS}).."")\n=====================\n`
                 }
-                result = result+resultS;break; // can subtract to get the selected number
+                result = result+"Base Form:\n"+resultS;break; // can subtract to get the selected number
             }
         }
         else
