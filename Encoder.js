@@ -22,7 +22,11 @@ module.exports = function(number, ETC = { MaxChars: 100 }){
             var resultS = result + "-" + subBy
             if(eval(resultS) == eval(number) && (parseInt(ETC.MaxChars) < parseInt(resultS.length)) ) {
                 if(!ETC.Hide && !ETC.hide && !ETC.hide_eq && !ETC.hideeq)console.log( `Result Done: ${int} || Caculated: ` + eval(resultS) + " | Length: " + resultS.length + " | Selected Random EQ: " + NewNumber.selected );
-                result = resultS;break; // can subtract to get the selected number
+                result = ""
+                if(ETC.lua || ETC.luamode || ETC.luaeq || ETC.lua_eq || ETC.luaequation || ETC.lua_equation){
+                    result = `Lua: ${number}==tonumber((${resultS}).."")\n=====================`
+                }
+                result = result+resultS;break; // can subtract to get the selected number
             }
         }
         else
