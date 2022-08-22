@@ -16,7 +16,7 @@ module.exports = function(number, ETC = { MaxChars: 100, /* adds result in lua f
     var result = getRandomInt(28, 18529).toString()
     var int = 0
     while( (eval(result)) !== eval(number) || ETC.MaxChars > result.length ){int++
-        var NewNumber = { selected: getRandomInt(.3, 100), equation: equations[getRandomInt(1, equations.length)], equation2: equations2[getRandomInt(1, equations2.length)] }
+        var NewNumber = { selected: getRandomInt(.3, 1000), equation: equations[getRandomInt(1, equations.length)], equation2: equations2[getRandomInt(1, equations2.length)] }
         if((eval(result)) > eval(number) && eval(result)-eval(number)<10){
             let subBy = eval(result)-eval(number)
             var resultS = result + "-" + subBy
