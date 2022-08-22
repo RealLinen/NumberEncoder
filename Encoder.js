@@ -17,13 +17,17 @@ module.exports = function(number, ETC = { MaxChars: 100 }){
     var int = 0
     while( (eval(result)) !== eval(number) || ETC.MaxChars > result.length ){int++
         var NewNumber = { selected: getRandomInt(.3, 100), equation: equations[getRandomInt(1, equations.length)], equation2: equations2[getRandomInt(1, equations2.length)] }
-        console.log( `Result ${int} || Caculated: ` + eval(result) + "| Length: " + result.length + " | Selected Random EQ: " + NewNumber.selected )
         if((eval(result)) > eval(number) && eval(result)-eval(number)<10){
             let subBy = eval(result)-eval(number)
             var resultS = result + "-" + subBy
-            if(eval(resultS) == eval(number) && (parseInt(ETC.MaxChars) > parseInt(resultS.length)) ) {
+            if(eval(resultS) == eval(number) && (parseInt(ETC.MaxChars) < parseInt(resultS.length)) ) {
+                if(!ETC.Hide && !ETC.hide && !ETC.hide_eq && !ETC.hideeq)console.log( `Result Done: ${int} || Caculated: ` + eval(resultS) + " | Length: " + resultS.length + " | Selected Random EQ: " + NewNumber.selected );
                 result = resultS;break; // can subtract to get the selected number
             }
+        }
+        else
+        {
+            if(!ETC.Hide && !ETC.hide && !ETC.hide_eq && !ETC.hideeq)console.log( `Result ${int} || Caculated: ` + eval(result) + " | Length: " + result.length + " | Selected Random EQ: " + NewNumber.selected );
         }
         if((eval(result)) > eval(number)){ // its greater than the number provided
             result += ( NewNumber.equation2 + NewNumber.selected )
