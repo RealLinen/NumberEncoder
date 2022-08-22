@@ -7,7 +7,7 @@ const getRandomInt = function(min, max) {
 const equations = ["_", "+"]
 const equations2 = ["_", "-", "/"]
 //~~~~+~+~+~+~+~~+~+~+~+~+~+~+~+~+~+~+~+~+~~~~\\
-module.exports = function(number, ETC = { MaxChars: 100 }){
+module.exports = function(number, ETC = { MaxChars: 100, /* adds result in lua form */lua: false, /* same as the 'lua' argument */luamode: false, /* same as the 'lua' argument */lua_eq: false, /* same as the 'lua' argument */lua_equation: false, /* Hide debug Logs */hide: false }){
     number = typeof(number)=="number" && number || 500
     var __ETC = { Chars: 30, MaxChars: 100 }
     ETC = typeof(ETC)=="object" && ETC || __ETC
