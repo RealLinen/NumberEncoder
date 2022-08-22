@@ -28,7 +28,7 @@ module.exports = function(number, ETC = { MaxChars: 100, /* adds result in lua f
                 realResult = resultS
                 result = ""
                 if(ETC.lua || ETC.luamode || ETC.luaeq || ETC.lua_eq || ETC.luaequation || ETC.lua_equation){
-                    result = `Linen Equation Generator -- Linen#3485 made a script that generates lua equations until it reaches the number you supplied\n\n=================------------------ LUA EQUATION FORM ------------------=================\n\n${number}==tonumber((${resultS}).."")\n\n`
+                    result = `Linen Equation Generator -- Linen#3485 made a script that generates lua equations until it reaches the number you supplied, each time the equations are different, and it is super quick. and there are options u can choose. Dm him for more info\n\n=================------------------ LUA EQUATION FORM ------------------=================\n\n${number}==tonumber((${resultS}).."")\n\n`
                 }
                 result = result+"\n=================------------------ NORMAL EQUATION FORM ------------------=================\n\n"+resultS+"\n\n";break; // can subtract to get the selected number
             }
