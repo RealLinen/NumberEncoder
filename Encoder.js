@@ -28,9 +28,9 @@ module.exports = function(number, ETC = { MaxChars: 100, /* adds result in lua f
                 realResult = resultS
                 result = ""
                 if(ETC.lua || ETC.luamode || ETC.luaeq || ETC.lua_eq || ETC.luaequation || ETC.lua_equation){
-                    result = `Lua Form: \n${number}==tonumber((${resultS}).."")\n=====================\n`
+                    result = `"\n=================------------------ LUA EQUATION FORM ------------------=================\n\n${number}==tonumber((${resultS}).."")\n\n`
                 }
-                result = result+"Base Form:\n"+resultS;break; // can subtract to get the selected number
+                result = result+"\n=================------------------ NORMAL EQUATION FORM ------------------=================\n\n"+resultS+"\n\n";break; // can subtract to get the selected number
             }
         }
         else
@@ -58,7 +58,7 @@ module.exports = function(number, ETC = { MaxChars: 100, /* adds result in lua f
             let data = module.exports(v, { MaxChars: 1000, hide: true })
             got+=data[1]
         };combined = realResult+" + "+got;
-        result+="\n=================------------------ SECURITY EQUATION BELOW ------------------=================\nBetter Security Form:\n"
+        result+="\n=================------------------ SECURITY EQUATION BELOW ------------------=================\n\n"
         result+="(("+combined+")-("+combined+"))+"+realResult+""
     }
     return [result, realResult]
